@@ -1,6 +1,7 @@
 ﻿using MassTransit;
 using Order.API.DataAccess;
 using Order.API.Models;
+using Shared.Interfaces;
 
 namespace Order.API.Consumers
 {

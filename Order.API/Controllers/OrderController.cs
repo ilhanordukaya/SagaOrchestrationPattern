@@ -1,8 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MassTransit;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Order.API.DataAccess;
 using Order.API.DTOs;
 using Order.API.Models;
+using Shared;
+using Shared.Events;
+using Shared.Interfaces;
 
 namespace Order.API.Controllers
 {
@@ -10,10 +14,11 @@ namespace Order.API.Controllers
 	{
 
 		private readonly AppDbContext _context;
-
-		public OrderController(AppDbContext context)
+		private readonly ISendEndpointProvider _sendEndpointProvider;
+		public OrderController(AppDbContext context, ISendEndpointProvider sendEndpointProvider)
 		{
 			_context = context;
+			_sendEndpointProvider = sendEndpointProvider;
 		}
 
 		[HttpPost]

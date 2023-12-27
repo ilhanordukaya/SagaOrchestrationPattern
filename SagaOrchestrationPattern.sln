@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Payment.API", "Payment.API\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stock.API", "Stock.API\Stock.API.csproj", "{9592CED7-9C68-4A63-93B5-BBB7180116D9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SagaStateMachineWorkerService", "SagaStateMachineWorkerService\SagaStateMachineWorkerService.csproj", "{A6F0297F-0155-44FC-92CA-F41B20B1ED63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{F6DD8FEC-23A2-4015-AA62-FA251B44F72B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{9592CED7-9C68-4A63-93B5-BBB7180116D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9592CED7-9C68-4A63-93B5-BBB7180116D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9592CED7-9C68-4A63-93B5-BBB7180116D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6F0297F-0155-44FC-92CA-F41B20B1ED63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6F0297F-0155-44FC-92CA-F41B20B1ED63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6F0297F-0155-44FC-92CA-F41B20B1ED63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6F0297F-0155-44FC-92CA-F41B20B1ED63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6DD8FEC-23A2-4015-AA62-FA251B44F72B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6DD8FEC-23A2-4015-AA62-FA251B44F72B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6DD8FEC-23A2-4015-AA62-FA251B44F72B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6DD8FEC-23A2-4015-AA62-FA251B44F72B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
