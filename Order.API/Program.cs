@@ -1,11 +1,49 @@
+using MassTransit;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Order.API.Consumers;
+using Order.API.DataAccess;
+using Shared;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddMassTransit(
+	x =>
+	{
+		x.AddConsumer<OrderRequestCompletedEventConsumer>();
+		x.AddConsumer<OrderRequestFailedEventConsumer>();
+
+		x.UsingRabbitMq((context, cfg) =>
+		{
+			cfg.Host(builder.Configuration.GetConnectionString("RabbitMQ"));
+
+			cfg.ReceiveEndpoint(RabbitMQSettingsConst.OrderRequestCompletedEventtQueueName, x =>
+			{
+				x.ConfigureConsumer<OrderRequestCompletedEventConsumer>(context);
+			});
+
+			cfg.ReceiveEndpoint(RabbitMQSettingsConst.OrderRequestFailedEventtQueueName, x =>
+			{
+				x.ConfigureConsumer<OrderRequestFailedEventConsumer>(context);
+			});
+		});
+	});
+
+      builder.Services.AddDbContext<OrderAppDbContext>(options =>
+         {
+	     options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreCon"));
+      });
+
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+
 
 var app = builder.Build();
 

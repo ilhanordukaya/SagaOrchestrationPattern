@@ -5,9 +5,9 @@ using System.Collections.Generic;
 namespace Order.API.DataAccess
 {
 	
-		public class AppDbContext : DbContext
+		public class OrderAppDbContext : DbContext
 		{
-			public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
+			public OrderAppDbContext(DbContextOptions<OrderAppDbContext> options) : base(options)
 			{
 			}
 

@@ -13,9 +13,9 @@ namespace Order.API.Controllers
 	public class OrderController:ControllerBase
 	{
 
-		private readonly AppDbContext _context;
+		private readonly OrderAppDbContext _context;
 		private readonly ISendEndpointProvider _sendEndpointProvider;
-		public OrderController(AppDbContext context, ISendEndpointProvider sendEndpointProvider)
+		public OrderController(OrderAppDbContext context, ISendEndpointProvider sendEndpointProvider)
 		{
 			_context = context;
 			_sendEndpointProvider = sendEndpointProvider;

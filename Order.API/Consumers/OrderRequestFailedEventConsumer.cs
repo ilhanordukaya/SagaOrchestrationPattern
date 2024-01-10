@@ -7,11 +7,11 @@ namespace Order.API.Consumers
 {
 	public class OrderRequestFailedEventConsumer : IConsumer<IOrderRequestFailedEvent>
 	{
-		private readonly AppDbContext _context;
+		private readonly OrderAppDbContext _context;
 
 		private readonly ILogger<OrderRequestFailedEventConsumer> _logger;
 
-		public OrderRequestFailedEventConsumer(AppDbContext context, ILogger<OrderRequestFailedEventConsumer> logger)
+		public OrderRequestFailedEventConsumer(OrderAppDbContext context, ILogger<OrderRequestFailedEventConsumer> logger)
 		{
 			_context = context;
 			_logger = logger;

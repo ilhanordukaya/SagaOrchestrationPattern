@@ -7,11 +7,11 @@ namespace Order.API.Consumers
 {
 	public class OrderRequestCompletedEventConsumer : IConsumer<IOrderRequestCompletedEvent>
 	{
-		private readonly AppDbContext _context;
+		private readonly OrderAppDbContext _context;
 
 		private readonly ILogger<OrderRequestCompletedEventConsumer> _logger;
 
-		public OrderRequestCompletedEventConsumer(AppDbContext context, ILogger<OrderRequestCompletedEventConsumer> logger)
+		public OrderRequestCompletedEventConsumer(OrderAppDbContext context, ILogger<OrderRequestCompletedEventConsumer> logger)
 		{
 			_context = context;
 			_logger = logger;

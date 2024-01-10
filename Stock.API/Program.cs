@@ -1,6 +1,8 @@
 using MassTransit;
+using Microsoft.EntityFrameworkCore;
 using Shared;
 using Stock.API.Consumers;
+using Stock.API.DataAccess;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,7 +29,10 @@ builder.Services.AddMassTransit(x =>
 		});
 	});
 });
-
+builder.Services.AddDbContext<AppDbContext>(options =>
+{
+	options.UseInMemoryDatabase("StockDb");
+});
 
 
 builder.Services.AddControllers();
